@@ -8,6 +8,8 @@ export interface Highlight {
   value: string;
 }
 
+export type Role = string | { topic: string; detail: string };
+
 export interface Project {
   title: string;
   summary: string;
@@ -16,8 +18,7 @@ export interface Project {
   period: string;
   team: string;
   highlights: Highlight[];
-  roles: string[];
-    tech?: { topic: string; detail: string }[];
+  roles: Role[];
   stack: Tag[];
   ai?: string;
   github?: string;
@@ -40,11 +41,9 @@ export const projects: Project[] = [
     ],
     roles: [
       '쇼핑·룩북 6개 페이지 개발 · Spring Boot API 연동 (axios)',
+      { topic: '스타일 일관성', detail: 'Tailwind @theme 디자인 토큰, 공통 UI는 src/components/ui로 분리' },
+      { topic: '성능', detail: 'WebP · fetchPriority · lazy loading, React.lazy 페이지별 코드 분할' },
       'FE 4명 PR 리뷰 · 브랜치 충돌 · 유실 파일 복구',
-    ],
-    tech: [
-      { topic: '스타일 일관성', detail: '하드코딩 색상 → Tailwind @theme 디자인 토큰, 공통 UI는 src/components/ui로 분리' },
-      { topic: '성능', detail: 'LCP 원인이던 대용량 이미지 → WebP · fetchPriority · lazy loading, React.lazy로 페이지별 코드 분할' },
     ],
     stack: ['React 19', 'TypeScript 6.0', 'Vite 8', 'Tailwind CSS v4', 'React Router 7', 'axios', 'REST API'],
     ai: 'Claude Code 사용 → 직접 리팩토링 · Lighthouse 측정으로 검증',
@@ -65,11 +64,9 @@ export const projects: Project[] = [
     ],
     roles: [
       '프론트엔드 개발 100% · Vercel 배포',
-      '실사용자 요청을 반영해 스쿼드 찾기 기능 추가',
-    ],
-    tech: [
       { topic: '구조 재설계', detail: 'Codex로 만든 Next.js 프로토타입 → React + Vite SPA로 재구축' },
       { topic: '컴포넌트화', detail: '하드코딩된 화면 → 공통 컴포넌트 + Tailwind로 재구성' },
+      '실사용자 요청을 반영해 스쿼드 찾기 기능 추가',
     ],
     stack: ['React 19', 'TypeScript 6.0', 'Vite 8', 'Tailwind CSS v4', 'React Router 7', 'Vercel'],
     ai: 'Claude Code 사용 · AI 프로토타입을 구조부터 다시 설계',
@@ -89,11 +86,9 @@ export const projects: Project[] = [
     ],
     roles: [
       'Figma 와이어프레임 설계',
-      '링크 입력 → 분석 요청 → 결과 출력 fetch 흐름 구현 · 연동 오류 수정',
-    ],
-    tech: [
-      { topic: '목업 우선 개발', detail: '목업 데이터로 화면을 먼저 완성 → 실제 API 응답 구조에 맞춰 데이터 처리 로직 교체' },
+      { topic: '목업 우선 개발', detail: '목업 데이터로 화면을 먼저 완성 → 실제 API 응답 구조에 맞춰 로직 교체' },
       { topic: '화면 분리', detail: '분석 단계별 컴포넌트, API 호출은 lib/api.ts로 분리' },
+      '링크 입력 → 분석 요청 → 결과 출력 fetch 흐름 구현 · 연동 오류 수정',
     ],
     stack: ['React 19', 'TypeScript 6.0', 'Vite 8', 'Tailwind CSS v4', 'REST API', 'FastAPI', 'Figma', 'Vercel'],
     github: 'https://github.com/choi-jieun/Global-shortform-Assistant',

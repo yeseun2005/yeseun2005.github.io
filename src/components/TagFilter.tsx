@@ -43,7 +43,7 @@ export default function TagFilter({ selected, onSelect }: Props) {
                       active ? tagColor[group].active : tagColor[group].base
                     }`}
                   >
-                    {tag} <span className="opacity-60">{count}</span>
+                    {tag}
                   </button>
                 );
               })}

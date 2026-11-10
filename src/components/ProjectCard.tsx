@@ -51,30 +51,20 @@ export default function ProjectCard({ project, selectedTag, onTagClick }: Props)
 
       <section>
         <h5 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">담당</h5>
-        <ul className="space-y-1 text-sm text-gray-700">
-          {project.roles.map((role) => (
-            <li key={role} className="flex gap-2">
-              <span className="text-accent">•</span>
-              <span>{role}</span>
-            </li>
-          ))}
+        <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-gray-700 marker:text-accent">
+          {project.roles.map((role) =>
+            typeof role === 'string' ? (
+              <li key={role}>{role}</li>
+            ) : (
+              <li key={role.topic}>
+                <span className="font-semibold text-gray-900">{role.topic}</span>
+                <span className="mx-1.5 text-gray-300">|</span>
+                {role.detail}
+              </li>
+            ),
+          )}
         </ul>
       </section>
-
-            {project.tech && project.tech.length > 0 && (
-        <section>
-          <h5 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">기술 포인트</h5>
-          <ul className="space-y-1.5 border-l-2 border-accent/30 pl-3 text-sm text-gray-700">
-            {project.tech.map((t) => (
-              <li key={t.topic}>
-                <span className="font-semibold text-gray-900">{t.topic}</span>
-                <span className="text-gray-400"> · </span>
-                {t.detail}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
 
       <div className="mt-auto space-y-3">
         {project.ai && (
