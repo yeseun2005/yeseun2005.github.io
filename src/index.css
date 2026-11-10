@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@theme {
+  --color-accent: #3e64ff;
+  --font-sans: "Poppins", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #4b5563;
+  -webkit-font-smoothing: antialiased;
+}
