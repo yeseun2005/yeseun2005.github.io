@@ -1,4 +1,6 @@
-import { Bot, CircleCheck, Clock, Code, ExternalLink, Rocket, Trophy, Users, type LucideIcon } from 'lucide-react';
+import { Bot, CircleCheck, Clock, Code, ExternalLink, History, Rocket, Trophy, Users, type LucideIcon } from 'lucide-react';
+import { useLastPushed } from '../hooks/useLastPushed';
+import { fromNow } from '../lib/relativeTime';
 import type { Project } from '../data/projects';
 import { groupOfTag, tagColor, type Tag } from '../data/tags';
 
@@ -18,6 +20,7 @@ interface Props {
 export default function ProjectCard({ project, selectedTag, onTagClick }: Props) {
   const status = statusConfig[project.status];
   const StatusIcon = status.icon;
+  const pushedAt = useLastPushed(project.github, project.status === '진행 중');
 
   return (
     <article className="flex flex-col gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md">
@@ -32,10 +35,21 @@ export default function ProjectCard({ project, selectedTag, onTagClick }: Props)
       <header>
         <h4 className="text-xl font-bold text-gray-900">{project.title}</h4>
         <p className="mt-1 text-sm text-gray-600">{project.summary}</p>
-        <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-gray-400">
-          <Users size={13} aria-hidden />
-          {project.team}
-        </p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+          <span className="inline-flex items-center gap-1.5 text-gray-400">
+            <Users size={13} aria-hidden />
+            {project.team}
+          </span>
+          {pushedAt && (
+            <span
+              className="inline-flex items-center gap-1.5 font-medium text-emerald-600"
+              title={new Date(pushedAt).toLocaleString('ko-KR')}
+            >
+              <History size={13} aria-hidden />
+              최근 업데이트 {fromNow(pushedAt)}
+            </span>
+          )}
+        </div>
       </header>
 
       {project.highlights.length > 0 && (
