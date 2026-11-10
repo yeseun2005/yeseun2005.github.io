@@ -18,6 +18,7 @@ export interface Project {
   period: string;
   team: string;
   highlights: Highlight[];
+  measureNote?: string;
   roles: Role[];
   stack: Tag[];
   ai?: string;
@@ -39,11 +40,11 @@ export const projects: Project[] = [
       { label: 'JS 번들', value: '-49.3%' },
       { label: '이미지 용량', value: '-94.6%' },
     ],
+    measureNote: 'Lighthouse 모바일 · 3회 중앙값',
     roles: [
       '쇼핑·룩북 6개 페이지 개발 · Spring Boot API 연동 (axios)',
       { topic: '스타일 일관성', detail: 'Tailwind @theme 디자인 토큰, 공통 UI는 src/components/ui로 분리' },
       { topic: '성능', detail: 'WebP · fetchPriority · lazy loading, React.lazy 페이지별 코드 분할' },
-      'FE 4명 PR 리뷰 · 브랜치 충돌 · 유실 파일 복구',
     ],
     stack: ['React 19', 'TypeScript 6.0', 'Vite 8', 'Tailwind CSS v4', 'React Router 7', 'axios', 'REST API'],
     ai: 'Claude Code 사용 → 직접 리팩토링 · Lighthouse 측정으로 검증',
@@ -62,11 +63,11 @@ export const projects: Project[] = [
       { label: 'LCP', value: '1.5s' },
       { label: '접근성', value: '100점' },
     ],
+    measureNote: 'PageSpeed Insights 모바일 기준',
     roles: [
       '프론트엔드 개발 100% · Vercel 배포',
       { topic: '구조 재설계', detail: 'Codex로 만든 Next.js 프로토타입 → React + Vite SPA로 재구축' },
       { topic: '컴포넌트화', detail: '하드코딩된 화면 → 공통 컴포넌트 + Tailwind로 재구성' },
-      '실사용자 요청을 반영해 스쿼드 찾기 기능 추가',
     ],
     stack: ['React 19', 'TypeScript 6.0', 'Vite 8', 'Tailwind CSS v4', 'React Router 7', 'Vercel'],
     ai: 'Claude Code 사용 · AI 프로토타입을 구조부터 다시 설계',
@@ -84,6 +85,7 @@ export const projects: Project[] = [
       { label: 'Performance', value: '99점' },
       { label: 'LCP', value: '1.5s' },
     ],
+    measureNote: 'PageSpeed Insights 모바일 · 배포 서비스 기준',
     roles: [
       'Figma 와이어프레임 설계',
       { topic: '목업 우선 개발', detail: '목업 데이터로 화면을 먼저 완성 → 실제 API 응답 구조에 맞춰 로직 교체' },
@@ -118,9 +120,11 @@ export const projects: Project[] = [
     period: '2026.05 – 2026.06',
     team: '3명 · 본인: UI · 통합 · 모델 평가',
     highlights: [
-      { label: '인식 정확도', value: '61.5% → 84.6%' },
-      { label: '오인식', value: '192 → 3건' },
+      { label: 'band recall', value: '0 → 0.98' },
+      { label: 'fusidin 오인식', value: '192 → 3건' },
+      { label: 'bearse precision', value: '0.69 → 0.96' },
     ],
+    measureNote: '직접 촬영 910장 중 80% 기준 · threshold 튜닝 후',
     roles: [
       '모델 평가 파이프라인 구축 (threshold · confusion 분석)',
       '저성능 4개 클래스 재촬영 · negative sample 재학습',
@@ -131,18 +135,23 @@ export const projects: Project[] = [
   },
   {
     title: '팔방송이',
-    summary: '위험음의 종류와 방향을 진동으로 알려주는 허리띠형 웨어러블',
+    summary: '경적 · 사이렌 · 충돌음 같은 위험음의 종류와 방향을 진동으로 알려주는 허리띠형 웨어러블',
     category: 'AI · Edge AI',
     status: '수상',
     period: '2026.08 – 2026.09',
-    team: '6명 · AI 2 (본인) / 전자 2 / 기계 2',
-    highlights: [{ label: 'MEIT 5회', value: '은상' }],
-    roles: [
-      '3개 전공 간 인터페이스 정의',
-      '분류 결과(클래스 · 확신도) 기반 위험도 판단 로직',
-      'MCU 명령 표시용 로컬 서버 설계',
+    team: '6명 · AI 2 (본인: 판단 로직 · 통합) / 전자 2 / 기계 2',
+    highlights: [
+      { label: '위험음 Recall', value: '98.9%' },
+      { label: '오탐률', value: '2.6%' },
+      { label: 'MEIT 5회', value: '은상' },
     ],
-    stack: ['YAMNet'],
+    measureNote: '분류 + 판단 파이프라인 · 검증셋 340클립 · "알림이 울렸는가" 기준',
+    roles: [
+      { topic: '위험도 판단', detail: '보정된 확신도 임계값 + 음량 게이트(dBFS)로 알림 여부 결정' },
+      { topic: '진동 출력', detail: 'dBFS → 진동 세기 매핑, 클래스별 패턴을 게이팅 주기에 맞춰 자동 선택' },
+      { topic: '통합 · 평가', detail: '모델 연결 · 확신도 보정, 실시간 오디오 입력 함수, 파이프라인 평가' },
+    ],
+    stack: ['Python', 'YAMNet', 'TensorFlow', 'librosa'],
     github: 'https://github.com/MEIT-competition/meit-ai',
     link: 'https://tar-trip-6a5.notion.site/MEIT-3c9739d7a1c381a3a169e456f72c5d0f',
     linkLabel: '프로젝트 소개',

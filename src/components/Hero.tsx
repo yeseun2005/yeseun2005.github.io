@@ -2,7 +2,7 @@ import type { MouseEvent } from 'react';
 import { profile } from '../data/profile';
 import { skillGroups } from '../data/skills';
 
-const featured = ['React 19', 'TypeScript 6.0', 'Tailwind CSS v4', 'Python', 'YOLO (Ultralytics)', 'Raspberry Pi'];
+const featured = ['React 19', 'TypeScript 6.0', 'Tailwind CSS v4', 'Vite 8', 'Python', 'Raspberry Pi'];
 const allSkills = skillGroups.flatMap((g) => g.skills);
 const featuredSkills = featured
   .map((name) => allSkills.find((s) => s.name === name))
@@ -60,7 +60,7 @@ export default function Hero() {
           입니다.
         </h1>
 
-        <p className={`${fadeUp} mt-6 max-w-2xl text-lg leading-relaxed text-gray-600`} style={{ animationDelay: '200ms' }}>
+        <p className={`${fadeUp} mt-6 max-w-2xl whitespace-pre-line text-lg leading-relaxed text-gray-600`} style={{ animationDelay: '200ms' }}>
           {profile.interest}
         </p>
 

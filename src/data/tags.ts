@@ -5,7 +5,7 @@ export const tagGroups = [
   },
   {
     group: 'AI · Data',
-    tags: ['Python', 'YOLO', 'YAMNet', 'OpenCV', 'Roboflow', 'Streamlit', 'gTTS'],
+    tags: ['Python', 'YOLO', 'YAMNet', 'TensorFlow', 'librosa', 'OpenCV', 'Roboflow', 'Streamlit', 'gTTS'],
   },
   {
     group: 'Embedded · IoT',

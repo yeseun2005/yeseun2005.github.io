@@ -62,6 +62,10 @@ export default function ProjectCard({ project, selectedTag, onTagClick }: Props)
           ))}
         </dl>
       )}
+      
+      {project.measureNote && (
+        <p className="-mt-3 text-[11px] leading-relaxed text-gray-400">{project.measureNote}</p>
+      )}
 
       <section>
         <h5 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">담당</h5>
