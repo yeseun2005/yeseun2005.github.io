@@ -7,8 +7,8 @@ function SkillIcon({ name, icon }: Skill) {
 
   if (!icon || failed) {
     return (
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-sm font-bold text-accent">
-        {name.slice(0, 2)}
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[10px] font-bold text-accent">
+        {name.slice(0, 1)}
       </span>
     );
   }
@@ -17,11 +17,11 @@ function SkillIcon({ name, icon }: Skill) {
     <img
       src={icon}
       alt=""
-      width={40}
-      height={40}
+      width={20}
+      height={20}
       loading="lazy"
       onError={() => setFailed(true)}
-      className="h-10 w-10 shrink-0 object-contain"
+      className="h-5 w-5 shrink-0 object-contain"
     />
   );
 }
@@ -31,21 +31,21 @@ export default function Skills() {
     <section id="skills" className="mb-24">
       <SectionHeading bigText="Skills" title="기술 스택" />
 
-      <div className="space-y-12">
+      <div className="divide-y divide-gray-100 rounded-2xl border border-gray-100 bg-white shadow-sm">
         {skillGroups.map((group) => (
-          <div key={group.title}>
-            <h3 className="mb-5 text-xl font-bold text-gray-800">{group.title}</h3>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div key={group.title} className="flex flex-col gap-3 p-5 md:flex-row md:items-start md:gap-6">
+            <h3 className="w-32 shrink-0 pt-1.5 text-sm font-bold text-gray-900">{group.title}</h3>
+            <ul className="flex flex-wrap gap-2">
               {group.skills.map((skill) => (
-                <div
+                <li
                   key={skill.name}
-                  className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-gray-50/60 px-6 py-5 shadow-[0_2px_12px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 py-1.5 pr-3.5 pl-2 text-sm font-medium text-gray-700"
                 >
                   <SkillIcon {...skill} />
-                  <span className="font-semibold text-gray-800">{skill.name}</span>
-                </div>
+                  {skill.name}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>
