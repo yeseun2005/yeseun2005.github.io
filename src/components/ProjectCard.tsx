@@ -50,7 +50,7 @@ export default function ProjectCard({ project, selectedTag, onTagClick }: Props)
       )}
 
       <section>
-        <h5 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">내가 한 일</h5>
+        <h5 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">담당</h5>
         <ul className="space-y-1 text-sm text-gray-700">
           {project.roles.map((role) => (
             <li key={role} className="flex gap-2">
