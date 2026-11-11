@@ -5,7 +5,7 @@ export const tagGroups = [
   },
   {
     group: 'AI · Data',
-    tags: ['Python', 'YOLO', 'YAMNet', 'TensorFlow', 'librosa', 'OpenCV', 'Roboflow', 'Streamlit', 'gTTS'],
+    tags: ['Python', 'pandas', 'YOLO', 'ByteTrack', 'YAMNet', 'TensorFlow', 'librosa', 'OpenCV', 'Roboflow', 'Streamlit', 'gTTS'],
   },
   {
     group: 'Embedded · IoT',
@@ -13,7 +13,7 @@ export const tagGroups = [
   },
   {
     group: 'Backend · 통신',
-    tags: ['Node.js', 'Express', 'Socket.IO', 'MongoDB Atlas', 'FastAPI', 'REST API', 'UDP', 'Serial'],
+    tags: ['Node.js', 'Express', 'Socket.IO', 'MongoDB Atlas', 'FastAPI', 'REST API', 'TCP', 'Serial'],
   },
   {
     group: '기타',
@@ -28,10 +28,10 @@ export const groupOfTag = Object.fromEntries(
   tagGroups.flatMap((g) => (g.tags as readonly Tag[]).map((tag) => [tag, g.group] as const)),
 ) as Record<Tag, TagGroup>;
 
-export const tagColor: Record<TagGroup, { base: string; active: string }> = {
-  Frontend: { base: 'bg-blue-50 text-blue-700 hover:bg-blue-100', active: 'bg-blue-600 text-white' },
-  'AI · Data': { base: 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100', active: 'bg-emerald-600 text-white' },
-  'Embedded · IoT': { base: 'bg-amber-50 text-amber-700 hover:bg-amber-100', active: 'bg-amber-500 text-white' },
-  'Backend · 통신': { base: 'bg-purple-50 text-purple-700 hover:bg-purple-100', active: 'bg-purple-600 text-white' },
-  기타: { base: 'bg-gray-100 text-gray-700 hover:bg-gray-200', active: 'bg-gray-700 text-white' },
+export const tagColor: Record<TagGroup, string> = {
+  Frontend: 'bg-blue-50 text-blue-700',
+  'AI · Data': 'bg-emerald-50 text-emerald-700',
+  'Embedded · IoT': 'bg-amber-50 text-amber-700',
+  'Backend · 통신': 'bg-purple-50 text-purple-700',
+  기타: 'bg-gray-100 text-gray-700',
 };

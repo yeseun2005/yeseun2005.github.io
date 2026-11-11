@@ -10,8 +10,10 @@ const featuredSkills = featured
 
 const fadeUp = 'animate-fade-up motion-reduce:animate-none';
 
-// 스크롤 속도 조절: 1초에 내려가는 거리(px). 숫자가 클수록 빠름
-const SCROLL_SPEED = 2000;
+// 스크롤 시간(ms): 거리가 멀어도 MAX 안에 도착. 숫자가 작을수록 빠름
+const SCROLL_SPEED = 4000; // 1초에 내려가는 거리(px)
+const MIN_DURATION = 300;
+const MAX_DURATION = 800;
 const NAVBAR_HEIGHT = 80;
 
 function smoothScrollTo(id: string) {
@@ -21,7 +23,7 @@ function smoothScrollTo(id: string) {
   const start = window.scrollY;
   const end = target.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
   const distance = Math.abs(end - start);
-  const duration = (distance / SCROLL_SPEED) * 1000;
+  const duration = Math.min(Math.max((distance / SCROLL_SPEED) * 1000, MIN_DURATION), MAX_DURATION);
   const startTime = performance.now();
 
   const step = (now: number) => {

@@ -14,14 +14,14 @@ export const awards: TimelineItem[] = [
     badge: { kind: '수상', text: '은상' },
     title: 'MEIT 5회 전공 융합 프로젝트 대회',
     description: '위험음 방향 인지 허리띠형 웨어러블 (전공 간 인터페이스 정의 · AI 판단 로직)',
-    stack: ['YAMNet'],
+    stack: ['Python', 'YAMNet', 'TensorFlow', 'librosa'],
   },
   {
     period: '진행 중',
-    badge: { kind: '진행 중', text: '예선 신청' },
+    badge: { kind: '진행 중', text: '본선 진출' },
     title: '제10회 SMWU 캡스톤디자인 경진대회 (시제품형)',
     description: '작업자를 따라 움직이는 물류센터용 스팟 쿨러 (작업자 인식·추적)',
-    stack: ['YOLO', 'OpenCV', 'Raspberry Pi'],
+    stack: ['YOLO', 'ByteTrack', 'OpenCV', 'Raspberry Pi'],
   },
   {
     period: '진행 중',
