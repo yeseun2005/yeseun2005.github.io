@@ -9,7 +9,7 @@ export const tagGroups = [
   },
   {
     group: 'Embedded · IoT',
-    tags: ['Raspberry Pi', 'ESP32'],
+    tags: ['Raspberry Pi', 'ESP32', 'I2C'],
   },
   {
     group: 'Backend · 통신',

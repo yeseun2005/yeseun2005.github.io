@@ -25,7 +25,7 @@ export const awards: TimelineItem[] = [
   },
   {
     period: '진행 중',
-    badge: { kind: '진행 중', text: '예선 신청' },
+    badge: { kind: '진행 중', text: '예선 통과' },
     title: '2026 SNOWCHAT AI 서비스 경진대회',
     description: '유학생 학업·체류 통합 플래너 챗봇',
   },
