@@ -13,7 +13,7 @@ export const awards: TimelineItem[] = [
     period: '2026.10',
     badge: { kind: '수상', text: '은상' },
     title: 'MEIT 5회 전공 융합 프로젝트 대회',
-    description: '위험음 방향 인지 허리띠형 웨어러블 (전공 간 인터페이스 정의 · AI 판단 로직)',
+    description: '위험음 방향 인지 허리띠형 웨어러블 (AI 판단 로직)',
     stack: ['Python', 'YAMNet', 'TensorFlow', 'librosa'],
   },
   {
@@ -28,13 +28,6 @@ export const awards: TimelineItem[] = [
     badge: { kind: '진행 중', text: '예선 통과' },
     title: '2026 SNOWCHAT AI 서비스 경진대회',
     description: '유학생 학업·체류 통합 플래너 챗봇',
-  },
-  {
-    period: '2025',
-    badge: { kind: '출전', text: '출전' },
-    title: '캡스톤디자인 대회',
-    description: '팀 협업용 실시간 채팅 서비스 송이톡 (프론트엔드)',
-    stack: ['JavaScript', 'Node.js', 'Socket.IO'],
   },
 ];
 
